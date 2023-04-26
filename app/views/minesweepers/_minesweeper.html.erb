@@ -1,0 +1,29 @@
+<div id="<%= dom_id minesweeper %>">
+  <% if flash[:alert] %>
+    <div class="alert alert-danger">
+      <%= flash[:alert] %>
+    </div>
+    <%= link_to 'Back to Main', minesweepers_path, class: 'btn btn-primary' %>
+  <% else %>
+    <% if flash[:success] %>
+      <div class="alert alert-success">
+        <%= flash[:success] %>
+      </div>
+      <%= link_to 'Back to Main', minesweepers_path, class: 'btn btn-primary' %>
+    <% else %>
+      <table class="table table-bordered">
+        <% minesweeper.board_state.each_with_index do |row, row_index| %>
+          <tr>
+            <% row.each_with_index do |cell, cell_index| %>
+              <% if minesweeper.clicked_cells.any? { |clicked_cell| clicked_cell == [row_index, cell_index] } %>
+                <td class="table-dark">0</td>
+              <% else %>
+                <td class="table-light"><%= link_to 'x', minecheck_minesweeper_path(minesweeper, cell: [row_index, cell_index]), class: 'btn btn-secondary' %></td>
+              <% end %>
+            <% end %>
+          </tr>
+        <% end %>
+      </table>
+    <% end %>
+  <% end %>
+</div>

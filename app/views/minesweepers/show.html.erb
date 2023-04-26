@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+<h1><%= @minesweeper.name %></h1>
+
+<p><strong>Created By:</strong> <%= @minesweeper.email %></p>
+<p><strong>created_at:</strong><%=@minesweeper.created_at%></p>
+<%= render @minesweeper %>
+
+<div>
+  <%= link_to "Back to minesweepers", minesweepers_path %> | <%= link_to "restart game", restart_minesweeper_path(@minesweeper)%>
+</div>

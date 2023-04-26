@@ -1,0 +1,28 @@
+<p style="color: green"><%= notice %></p>
+<div class="text-center">
+  <h1>Minesweepers</h1>
+  <%= link_to "New minesweeper", new_minesweeper_path %>
+  <div id="minesweepers">
+    <table class="table table-striped table-hover text-center">
+      <thead>
+        <tr>
+          <th>Created by</th>
+          <th>Email</th>
+          <th>Created at</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @minesweepers.each do |minesweeper| %>
+          <tr>
+            <td><%= link_to minesweeper.name, minesweeper %></td>
+            <td><%= minesweeper.email %></td>
+            <td><%= minesweeper.created_at %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <%= will_paginate @minesweepers %>
+</div>
+
+
