@@ -1,24 +1,39 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Prerequisites
 
-Things you may want to cover:
+- Ruby 3.0.0
+- Rails 7.0.4.3
+- mysql
 
-* Ruby version
+## Installation
 
-* System dependencies
+Clone the github repository
 
-* Configuration
+```bash
+git clone https://github.com/ZamanWork/minesweepersgame.git
+```
 
-* Database creation
+Install dependencies
 
-* Database initialization
+```bash
+bundle install
+```
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+### Database setup
 
-* Deployment instructions
+In order to setup **Postgres** for local machine, add the required environment variables in
+`/config/environment_variables.yml`.
 
-* ...
+For required variables see `database.yml` file.
+
+```bash
+rails db:create
+rails db:migrate
+```
+
+### Start the server
+
+```bash
+rails server
+```
